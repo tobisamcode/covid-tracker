@@ -1,6 +1,6 @@
 <template>
   <main v-if="!loading">
-    Show data
+    <DataTitle :text="title" :dataDate="dataDate" />
   </main>
 
   <main class="flex flex-col justify-center text-center align-center" v-else>
@@ -10,11 +10,13 @@
 </template>
 
 <script>
-
+import DataTitle from '@/components/DataTitle'
 
 export default {
   name: 'Home',
-  components: {},
+  components: {
+    DataTitle
+  },
   data () {
     return {
       loading: true,
@@ -35,10 +37,10 @@ export default {
   async created (){
     const data = await this.fetchCovidData()
     
-    this.dateDate = data.Date
+    this.dataDate = data.Date
     this.stats = data.Global
     this.countries = data.Countries
-    this.loading = true
+    this.loading = false
   },
 }
 </script>
