@@ -5,11 +5,17 @@
     <DataBoxes :stats="stats"/>
 
     <CountrySelect @get-country="getCountryData" :countries="countries"/>
+
+    <button v-if="stats.Country"
+      class="p-3 mt-10 text-white bg-green-700 rounded focus:outline-none hover:bg-green-600">Clear Country
+    </button>
   </main>
 
+
+
   <main class="flex flex-col justify-center text-center align-center" v-else>
-  <div class="mt-10 mb-6 text-3xl text-gray-500">Fetching Data</div>
-  <img :src="loadingImage" class="w-24 m-auto" alt="">
+    <div class="mt-10 mb-6 text-3xl text-gray-500">Fetching Data</div>
+    <img :src="loadingImage" class="w-24 m-auto" alt="">
   </main>
 </template>
 
