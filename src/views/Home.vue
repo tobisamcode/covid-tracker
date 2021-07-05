@@ -6,7 +6,7 @@
 
     <CountrySelect @get-country="getCountryData" :countries="countries"/>
 
-    <button v-if="stats.Country"
+    <button v-if="stats.Country" @click="clearCountryData"
       class="p-3 mt-10 text-white bg-green-700 rounded focus:outline-none hover:bg-green-600">Clear Country
     </button>
   </main>
@@ -51,6 +51,14 @@ export default {
     getCountryData(country){
       this.stats = country
       this.title = country.Country
+    },
+
+    async clearCountryData(){
+      this.loading = true
+      const data = await this.fetchCovidData()
+      this.title = 'Global'
+      this.stats = data.Global
+      this.loading = false
     }
   },
   async created (){
