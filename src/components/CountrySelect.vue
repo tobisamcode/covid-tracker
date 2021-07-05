@@ -18,6 +18,13 @@ export default {
         return{
             selected: 0
         }
+    },
+    methods: {
+        onChange(){
+            const country =this.countries.find((item) => item.ID === this.selected)
+
+            this.$emit('get-country', country)
+        }
     }
 }
 </script>
