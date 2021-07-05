@@ -3,6 +3,8 @@
     <DataTitle :text="title" :dataDate="dataDate" />
 
     <DataBoxes :stats="stats"/>
+
+    <CountrySelect :countries="countries"/>
   </main>
 
   <main class="flex flex-col justify-center text-center align-center" v-else>
